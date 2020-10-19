@@ -1,0 +1,54 @@
+
+<div class="form-container">
+    <h1>Subcription Form</h1>
+    <form [formGroup]='form' (submit)="subscribe()">
+        <div class="form-group" *ngIf="formControls.firstName as control">
+            <label>
+                First Name:
+            </label>
+            <input type="text" class="form-control" id="firstName" formControlName="firstName">
+            <mat-error *ngIf="control.errors as errors">
+                <div class="small-spacer"></div>
+                <ng-container *ngIf="errors.required && submitted">A first name is required</ng-container>
+            </mat-error>
+        </div>
+        <div class="form-group" *ngIf="formControls.lastName as control">
+            <label>
+                Last Name:
+            </label>
+            <input type="text" class="form-control" id="lastName" formControlName="lastName">
+            <mat-error *ngIf="control.errors as errors">
+                <div class="small-spacer"></div>
+                <ng-container *ngIf="errors.required && submitted">A lastName name is required</ng-container>
+            </mat-error>
+        </div>
+        <div class="form-group" *ngIf="formControls.email as control">
+            <label>
+                Email:
+            </label>
+            <input type="text" class="form-control" id="email" formControlName="email">
+            <mat-error *ngIf="control.errors as errors">
+                <div class="small-spacer"></div>
+                <ng-container *ngIf="errors.required && submitted">A email is required</ng-container>
+            </mat-error>
+        </div>
+        <div class="form-group" *ngIf="formControls.phoneNumber as control">
+            <label>
+                Phone Number:
+            </label>
+            <input type="text" class="form-control" id="phoneNumber" formControlName="phoneNumber">
+            <mat-error *ngIf="control.errors as errors">
+                <div class="small-spacer"></div>
+                <ng-container *ngIf="errors.required && submitted">A phone number is required</ng-container>
+                <ng-container *ngIf="errors.pattern && submitted">Your phone number must be 10 digits</ng-container>
+            </mat-error>
+        </div>
+        <div class="row right-align">
+            <div class="col-7"></div>
+            <div class="col-5">
+                <button type="submit" class="subscribe" mat-stroked-button>Subscribe</button>
+            </div>
+        </div>
+        <div class="spacer"></div>
+    </form>
+</div>

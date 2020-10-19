@@ -1,0 +1,62 @@
+<div class="container">
+<div class="form-container" *ngIf="!isAdmin">
+    <h1>Admin Login</h1>
+    <div *ngIf="wrongCrendentials">
+        <span>Your username and/or password is invalid</span>
+        <div class="small-spacer"></div>
+    </div>
+    <form [formGroup]='form' (submit)="login()">
+        <div class="form-group" *ngIf="formControls.username as control">
+            <label>
+                Username:
+            </label>
+            <input type="text" class="form-control" id="username" formControlName="username">
+            <mat-error *ngIf="control.errors as errors">
+                <div class="small-spacer"></div>
+                <ng-container *ngIf="errors.required && loginSubmitted">A username is required</ng-container>
+            </mat-error>
+        </div>
+        <div class="form-group" *ngIf="formControls.password as control">
+            <label>
+                Password:
+            </label>
+            <input type="password" class="form-control" id="password " formControlName="password">
+            <mat-error *ngIf="control.errors as errors">
+                <div class="small-spacer"></div>
+                <ng-container *ngIf="errors.required && loginSubmitted">A password is required</ng-container>
+            </mat-error>
+        </div>
+        <div class="row right-align">
+            <div class="col-7"></div>
+            <div class="col-5">
+                <button type="submit" class="subscribe" mat-stroked-button>Login</button>
+            </div>
+        </div>
+        <div class="spacer"></div>
+    </form>
+</div>
+<div class="form-container" *ngIf="isAdmin">
+    <h1>Enter your message</h1>
+    <form [formGroup]='messageForm' (submit)="send()">
+        <div class="form-group" *ngIf="messageFormControls.message as control">
+            <label>
+                Message:
+            </label>
+            <!-- <input type="text" class="form-control message" id="message" formControlName="message"> -->
+            <textarea cols="50" rows="10" id="message" type="text" name="message" formControlName="message"></textarea>
+            <mat-error *ngIf="control.errors as errors">
+                <div class="small-spacer"></div>
+                <ng-container *ngIf="errors.required && messageSubmitted">A message is required</ng-container>
+            </mat-error>
+        </div>
+        <div class="row right-align">
+            <div class="col-7"></div>
+            <div class="col-5">
+                <button type="submit" class="subscribe" mat-stroked-button>Send</button>
+            </div>
+        </div>
+        <div class="spacer"></div>
+    </form>
+</div>
+
+</div>
