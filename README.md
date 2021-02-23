@@ -1,4 +1,8 @@
-This is the UI side of my project for the technical assessment. 
+This is the UI side of my text subscription app.
+
+Users are able to fill out a form to subscribe to the web app. 
+
+Admins are able to type messages and send them to all of the subscribers. 
 
 To get this to run, you will need Angular Cli version 9.1.7
 
