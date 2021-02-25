@@ -1,5 +1,7 @@
 This is the UI side of my text subscription app.
 
+The back-end side is in here: https://github.com/Barryxyz/Text-Subscription-App
+
 Users are able to fill out a form to subscribe to the web app. 
 
 Admins are able to type messages and send them to all of the subscribers. 
